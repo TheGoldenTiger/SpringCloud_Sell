@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: test
+    stream:
+       bindings:
+           example-topic-input:
+               destination: aaa-topic
+               content-type: application/json
+               group: order
+           example-topic-output:
+               destination: aaa-topic
+               content-type: application/json
+               group: order
+           example-topic-input2:
+               destination: bbb-topic
+               content-type: application/json
+               group: order2
+           example-topic-output2:
+               destination: bbb-topic
+               content-type: application/json
+               group: order2
+  zipkin:
+    base-url: http://192.168.25.142:9411/
+    sender:
+          type: web
+  sleuth:
+      sampler:
+        probability: 1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:8761/eureka/,http://eureka2:8762/eureka/
+  instance:
+      prefer-ip-address: true
+
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+

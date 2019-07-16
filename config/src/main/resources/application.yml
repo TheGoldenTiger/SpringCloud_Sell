@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/thegoldentiger/config-repo
+          username: 2536174153@qq.com
+          password: ljh011866
+          basedir: E:/workSpace/IntelliJ IDEA workspace/SpringCloud_Sell/basedir
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:8761/eureka/,http://eureka2:8762/eureka/
+  instance:
+    prefer-ip-address: true
